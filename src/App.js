@@ -15,9 +15,9 @@ function App() {
       <button className="btn btn-dark" onClick={() => setShow(!show)} >{ show ? "Hide" : "Show" }</button>
       
       {/* Conditional Renderin (Short-Circuit) */}
-      {show && <LifeCycleMethods /> }
+      {/* {show && <LifeCycleMethods /> } */}
       {/* {show ? <LifeCycleMethods /> : null } */}
-      {/* {show && <UseEffectHook/> } */}
+      {show && <UseEffectHook/> }
      
     </div>
   );

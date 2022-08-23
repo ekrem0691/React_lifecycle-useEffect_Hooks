@@ -6,7 +6,7 @@
 //! componentDidMount,componentDidUpdate,ve componentWillUnmount
 //! metotlarinin bir birlesimi gibi dusunulebilir.
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 //! useEffect(() => {
 //*   /* ComponentDidMount code */
@@ -35,43 +35,48 @@ const UseEffectHook = () => {
 
   //! ComponentDidMount
   // useEffect(() => {
-  //   console.log('Mounted'); //! fetch, asyn-await ,localStorage, setTimeout
-  //   setTimeout(() => {
-  //     alert('Data Fetched');
-  //   }, 3000);
-  // },[]);
+  //   console.log("Mounted"); //! fetch, asyn-await ,localStorage, setTimeout
+  //   setTimeout(()=>{
+  //     alert("Data Fetched")
+  //   }, 3000) 
+  // }, []);
 
-  //! ComponentDidMount + componentDidUpdate
-  // useEffect(() => {
-  //   console.log('Mounted + Updated');
-  //   setTimeout(() => {
-  //     alert('Data Fetched');
-  //   }, 1000);
-  // }, [count]);
-
-  //! ComponentDidMount + componentWillUnmount
-  const fetchData = () => {
-    console.log('Data Fetched');
-  };
-
+  // ! ComponentDidMount + componentDidUpdate
   useEffect(() => {
-    //! ComponentDidMount
-    const timerId = setInterval(fetchData, 1000);
-    console.log('Mounted');
-    return () => {
-      //! componentWillUnmount
-      clearInterval(timerId);
-      console.log('Unmounted');
-    };
-  }, []);
+    console.log('Mounted + Updated');
+    setTimeout(() => {
+      alert('Data Fetched');
+    }, 2000);
+  }, [count]);
 
-  console.log('rendered');
+  // //! ComponentDidMount + componentWillUnmount
+  // const fetchData = () => {
+  //   console.log('Data Fetched');
+  // };
+
+  // useEffect(() => {
+  //   //! ComponentDidMount
+  //   const timerId = setInterval(fetchData, 1000);
+  //   console.log('Mounted');
+  //   return () => {
+  //     //! componentWillUnmount
+  //     clearInterval(timerId);
+  //     console.log('Unmounted');
+  //   };
+  // }, []);
+
+  console.log("rendered");
   return (
     <div className="container text-center mt-4">
-      <h1 className="text-danger">USEEFFECT</h1>
+      <h1>UseEffect</h1>
       <h3>Count:{count}</h3>
-      <button className="btn btn-warning" onClick={() => setCount(count + 1)}>
-        INC
+      <button
+        className="btn btn-warning"
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Inc
       </button>
     </div>
   );
